@@ -149,11 +149,11 @@
 
   .filters { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
   .chip {
-    padding: 7px 15px;
+    padding: 8px 16px;
     border: 1px solid var(--border);
     background: var(--card);
     color: var(--text-soft);
-    border-radius: 999px;
+    border-radius: 6px;
     font-size: 0.88rem;
     font-family: inherit;
     font-weight: 600;
@@ -161,7 +161,12 @@
     transition: all .15s;
   }
   .chip:hover { border-color: var(--purple-light); color: var(--purple); }
-  .chip.active { background: var(--purple); border-color: var(--purple); color: #fff; }
+  .chip.active {
+    background: linear-gradient(135deg, #C1388E 0%, var(--purple) 55%, var(--purple-deep) 100%);
+    border-color: transparent;
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(123,45,142,.28);
+  }
 
   /* ===== Prompt cards ===== */
   main { max-width: 1080px; margin: 0 auto; padding: 8px 24px 64px; }

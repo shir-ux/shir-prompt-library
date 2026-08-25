@@ -57,7 +57,7 @@ def main():
         '<head>',
         '<meta charset="UTF-8">',
         '<meta name="viewport" content="width=device-width, initial-scale=1.0">',
-        '<title>ספריית הפרומפטים והמדריכים</title>',
+        '<title>ספריית ה-AI של שיר</title>',
         '<style>',
         read("assets", "fonts.css"),
         read("template", "styles.css"),
