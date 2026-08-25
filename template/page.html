@@ -1,0 +1,48 @@
+
+<header>
+  <img class="brand-logo" src="{{LOGO}}" alt="SDM by Shir Sharvit">
+  <h1>ספריית הפרומפטים והמדריכים</h1>
+  <div class="gold-rule"></div>
+  <p class="sub">{{N_PROMPTS}} פרומפטים מוכנים להעתקה, ו-{{N_GUIDES}} מדריכים לעבודה נכונה עם סוכני AI.</p>
+  <div class="tabs">
+    <button class="tab active" data-view="prompts">פרומפטים<span class="n">{{N_PROMPTS}}</span></button>
+    <button class="tab" data-view="guides">מדריכים<span class="n">{{N_GUIDES}}</span></button>
+  </div>
+</header>
+
+<!-- ================= VIEW: PROMPTS ================= -->
+<div class="view active" id="view-prompts">
+  <section class="howto">
+    <div class="howto-inner">
+      <h2>איך משתמשים</h2>
+      <ol>
+        <li>מחפשים בשורת החיפוש, או בוחרים קטגוריה.</li>
+        <li>לוחצים על שם הפרומפט כדי לפתוח אותו.</li>
+        <li>לוחצים "העתקה" ומדביקים בצ'אט (ChatGPT, Claude, Gemini - כולם עובדים).</li>
+        <li>מחליפים את מה שבסוגריים המרובעים [כמו זה] בפרטים שלכם.</li>
+      </ol>
+    </div>
+  </section>
+
+  <div class="controls">
+    <div class="controls-inner">
+      <input type="text" id="search" placeholder="חיפוש חופשי בפרומפטים...">
+      <div class="filters" id="filters"></div>
+    </div>
+  </div>
+
+  <main id="list"></main>
+  <div id="empty">לא נמצאו פרומפטים שמתאימים לחיפוש.</div>
+</div>
+
+<!-- ================= VIEW: GUIDES ================= -->
+<div class="view" id="view-guides">
+  <main>
+    <div id="g-index"></div>
+    <div id="g-article" style="display:none"></div>
+  </main>
+</div>
+
+<footer>
+  ספריית פרומפטים ומדריכים - נאספה וסודרה לשימוש חופשי.
+</footer>
