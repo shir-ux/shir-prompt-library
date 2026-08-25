@@ -79,6 +79,12 @@ function renderPrompts() {
     head.querySelector(".card-title").textContent = p.name;
     head.querySelector(".card-purpose").textContent = p.purpose;
     head.querySelector(".card-cat").textContent = p.cat;
+    if (p.date) {
+      const dateEl = document.createElement("div");
+      dateEl.className = "card-date";
+      dateEl.textContent = "הועלה " + p.date;
+      head.querySelector(".card-head-text").appendChild(dateEl);
+    }
     head.onclick = () => card.classList.toggle("open");
 
     const body = document.createElement("div");

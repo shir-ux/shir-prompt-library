@@ -207,6 +207,7 @@
   .card-head-text { flex: 1; min-width: 0; }
   .card-title { font-size: 1.08rem; font-weight: 700; color: var(--purple-deep); margin-bottom: 5px; }
   .card-purpose { font-size: 0.93rem; color: var(--text-soft); }
+  .card-date { font-size: 0.78rem; color: var(--text-soft); opacity: .7; margin-top: 4px; }
   .card-cat {
     flex-shrink: 0;
     font-size: 0.75rem;
