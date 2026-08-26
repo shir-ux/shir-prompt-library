@@ -8,6 +8,7 @@
 """
 
 import base64
+import hashlib
 import json
 import pathlib
 import sys
@@ -44,6 +45,12 @@ def main():
         if g["n"] != i:
             sys.exit(f"שגיאה: מספור המדריכים לא רציף - ציפיתי ל-{i}, קיבלתי {g['n']}")
 
+    pw_file = ROOT / ".portal-password"
+    if not pw_file.exists():
+        sys.exit("שגיאה: חסר קובץ .portal-password (הסיסמה לשער הכניסה) - הוא לא נשמר ב-git בכוונה")
+    password = pw_file.read_text(encoding="utf-8").rstrip("\n")
+    lock_hash = hashlib.sha256(password.encode("utf-8")).hexdigest()
+
     logo = base64.b64encode((ROOT / "assets" / "logo-white.png").read_bytes()).decode("ascii")
 
     page = (read("template", "page.html")
@@ -70,6 +77,7 @@ def main():
         '<script type="text/plain" id="starter-rules-src">' + starter_rules + '</script>',
         '',
         '<script>',
+        'const LOCK_HASH = ' + js_literal(lock_hash) + ';',
         'const PROMPTS = ' + js_literal(prompts) + ';',
         'const GUIDES = ' + js_literal(guides) + ';',
         '',

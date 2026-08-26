@@ -25,6 +25,64 @@
     -webkit-font-smoothing: antialiased;
   }
 
+  /* ===== Lock screen ===== */
+  body:not(.unlocked) #app { display: none; }
+  body.unlocked #lock-screen { display: none; }
+  #lock-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #C1388E 0%, var(--purple) 52%, var(--purple-deep) 100%);
+    padding: 24px;
+  }
+  .lock-box {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 40px 32px 32px;
+    max-width: 360px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+  }
+  .lock-box .brand-logo { height: 56px; width: auto; display: block; margin: 0 auto 16px; }
+  .lock-box h1 { font-size: 1.3rem; font-weight: 700; color: var(--purple-deep); margin-bottom: 10px; }
+  .lock-box .gold-rule { width: 60px; height: 3px; background: var(--gold); margin: 0 auto 18px; border-radius: 2px; }
+  .lock-label { font-size: 0.92rem; color: var(--text-soft); margin-bottom: 16px; }
+  #lock-input {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    font-size: 1rem;
+    font-family: var(--font);
+    text-align: center;
+    margin-bottom: 14px;
+  }
+  #lock-input:focus { outline: none; border-color: var(--purple-light); }
+  #lock-submit {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    background: var(--purple-deep);
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 700;
+    font-family: var(--font);
+    cursor: pointer;
+    transition: background .15s;
+  }
+  #lock-submit:hover { background: var(--purple); }
+  .lock-error {
+    display: none;
+    color: #B3261E;
+    font-size: 0.85rem;
+    margin-top: 12px;
+  }
+
   /* ===== Header ===== */
   header {
     background: linear-gradient(135deg, #C1388E 0%, var(--purple) 52%, var(--purple-deep) 100%);

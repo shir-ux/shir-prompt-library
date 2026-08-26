@@ -1,3 +1,30 @@
+/* ---------- lock screen ---------- */
+(() => {
+  const lockInput = document.getElementById("lock-input");
+  const lockSubmit = document.getElementById("lock-submit");
+  const lockError = document.getElementById("lock-error");
+
+  async function sha256Hex(text) {
+    const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(text));
+    return [...new Uint8Array(buf)].map(b => b.toString(16).padStart(2, "0")).join("");
+  }
+
+  async function tryUnlock() {
+    const hash = await sha256Hex(lockInput.value);
+    if (hash === LOCK_HASH) {
+      document.body.classList.add("unlocked");
+    } else {
+      lockError.style.display = "block";
+      lockInput.value = "";
+      lockInput.focus();
+    }
+  }
+
+  lockSubmit.onclick = tryUnlock;
+  lockInput.addEventListener("keydown", e => { if (e.key === "Enter") tryUnlock(); });
+  lockInput.focus();
+})();
+
 /* ---------- shared copy helper ---------- */
 function copyText(text, btn, label) {
   const done = () => {
